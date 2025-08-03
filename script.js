@@ -586,7 +586,9 @@ anc();
     });
   });
 
-  // eww
+  // time 
+
+  
   
 
 
@@ -598,6 +600,25 @@ loaderAnimation();
 locomotiveScrollInit()
 cardAnimation();
 // cardShow();
+(function() {
+  const el = document.getElementById("lc-time");
+  if (!el) return;
+
+  function updateLocalTime() {
+    // option‑based formatting بہتر ہے کیونکہ locale‑sensitive
+    const timeText = new Date().toLocaleTimeString(undefined,
+      { hour: "2-digit", minute: "2-digit", hour12: false }
+    );
+
+    el.textContent = `My local Time ${timeText}`;
+  }
+
+  updateLocalTime();              // پہلی بار replace کریں
+  setInterval(updateLocalTime, 1000);  // ہر ایک سیکنڈ بعد update کریں
+})();
+
+
+
 
 
 
